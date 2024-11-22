@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class Main {
     class Node {
@@ -66,6 +68,21 @@ public class Main {
                 }
             }
             current = current.next;
+        }
+    }
+
+
+    void deleteDupsWithBuiltinStructure(LinkedList<Integer> list) {
+        HashSet<Integer> set = new HashSet<Integer>();
+        Iterator<Integer> iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            int current = iterator.next();
+            if (set.contains(current)) {
+                iterator.remove();
+            } else {
+                set.add(current);
+            }
         }
     }
 }
